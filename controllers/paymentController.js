@@ -79,11 +79,11 @@ export const cancelSubscription = catchAsyncError(async (req, res, next) => {
     console.log(subscriptionId)
     let refund = false;
 
-    try {
-        await instance.subscriptions.cancel(subscriptionId);
-    } catch (error) {
-        console.log(error);
-    }
+    // try {
+    await instance.subscriptions.cancel(subscriptionId);
+    // } catch (error) {
+    // console.log(error);
+    // }
 
 
     const payment = await Payment.findOne({
