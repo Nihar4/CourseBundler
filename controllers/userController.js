@@ -238,8 +238,9 @@ export const removeFromPlaylist = catchAsyncError(async (req, res, next) => {
 // Admin Controllers
 
 export const getAllUsers = catchAsyncError(async (req, res, next) => {
-    const users = await User.find({});
-
+    let users = await User.find({
+        _id: { $ne: req.user._id }
+    });
     res.status(200).json({
         success: true,
         users,
