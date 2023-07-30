@@ -79,9 +79,14 @@ export const getDashboardStats = catchAsyncError(async (req, res, next) => {
         };
 
         usersPercentage = (difference.users / statsData[10].users) * 100;
+        usersPercentage = usersPercentage.toFixed(1)
         viewsPercentage = (difference.views / statsData[10].views) * 100;
+        viewsPercentage = viewsPercentage.toFixed(1)
+
         subscriptionPercentage =
             (difference.subscription / statsData[10].subscription) * 100;
+        subscriptionPercentage = subscriptionPercentage.toFixed(1)
+
         if (usersPercentage < 0) usersProfit = false;
         if (viewsPercentage < 0) viewsProfit = false;
         if (subscriptionPercentage < 0) subscriptionProfit = false;
